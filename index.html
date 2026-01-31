@@ -1,0 +1,287 @@
+cript src="script.js"></script>
+</bodely ibrahimdely ibrahimdely ibrahim<!DOCTYPE htmldely ibrahimdely ibrahimdely ibrahim<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mon Magasin – Bureau Tabac & Cosmétique</title>
+  <meta name="description" content="Bureau tabac et cosmétique à votre service. Produits de qualité, tabac, parfums, cosmétiques et accessoires disponibles en magasin.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container-header">
+    <h1>Mon Magasin</h1>
+    <nav>
+      <a href="#accueil">Accueil</a>
+      <a href="#produits">Produits</a>
+      <a href="#avis">Avis Clients</a>
+      <a href="#contact">Contact</a>
+      <a href="#compte">Compte</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ACCUEIL -->
+<section id="accueil" class="hero">
+  <h2>Bienvenue dans notre magasin</h2>
+  <p>Tabac • Parfums • Cosmétiques • Accessoires</p>
+</section>
+
+<!-- PRODUITS -->
+<section id="produits" class="content">
+  <h2>Nos Produits</h2>
+
+  <input type="text" id="searchInput" placeholder="Rechercher un produit..." onkeyup="searchProducts()">
+
+  <h3>Tabac & Accessoires</h3>
+  <ul class="product-list">
+    <li><img src="images/cigarettes.jpg" alt="Cigarettes"><p>Cigarettes</p></li>
+    <li><img src="images/chicha.jpg" alt="Chicha"><p>Chicha</p></li>
+    <li><img src="images/briquet.jpg" alt="Briquet"><p>Briquets</p></li>
+    <li><img src="images/feuille.jpg" alt="Feuilles"><p>Feuilles</p></li>
+  </ul>
+
+  <h3>Cosmétiques & Parfums</h3>
+  <ul class="product-list">
+    <li><img src="images/parfum.jpg" alt="Parfum"><p>Parfums Homme & Femme</p></li>
+    <li><img src="images/creme.jpg" alt="Crème"><p>Crèmes</p></li>
+    <li><img src="images/soins-cheveux.jpg" alt="Produits capillaires"><p>Produits capillaires</p></li>
+    <li><img src="images/soins-visage.jpg" alt="Soins visage"><p>Soins visage</p></li>
+  </ul>
+  <p class="note">⚠️ Vente uniquement en magasin.</p>
+</section>
+
+<!-- AVIS CLIENTS -->
+<section id="avis" class="content">
+  <h2>⭐ Avis de nos clients</h2>
+
+  <div id="reviews">
+    <div class="review">
+      <strong>Ahmed</strong>
+      <p>Très bon magasin, produits de qualité 👍</p>
+      <div class="stars" data-rating="5">★★★★★</div>
+    </div>
+    <div class="review">
+      <strong>Sara</strong>
+      <p>Accueil chaleureux et bons prix 😊</p>
+      <div class="stars" data-rating="4">★★★★☆</div>
+    </div>
+  </div>
+
+  <h3>Laisser un avis</h3>
+  <input type="text" id="name" placeholder="Votre nom">
+  <textarea id="message" placeholder="Votre avis"></textarea>
+  <div class="star-input">
+    Note :
+    <span onclick="setRating(1)">★</span>
+    <span onclick="setRating(2)">★</span>
+    <span onclick="setRating(3)">★</span>
+    <span onclick="setRating(4)">★</span>
+    <span onclick="setRating(5)">★</span>
+  </div>
+  <button onclick="addReview()">Envoyer</button>
+
+  <p>Moyenne des avis : <span id="average-rating">0</span> / 5 ⭐</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="content">
+  <h2>Contact</h2>
+  <p><strong>Adresse :</strong> Rue ain allah, dely ibrahim</p>
+  <p><strong>Téléphone :</strong> 0776707615</p>
+  <p><strong>Horaires :</strong> Tous les jours 8h – 22h</p>
+
+  <h3>Nous trouver</h3>
+  <iframe
+    src="https://www.google.com/maps?q=ALGER&output=embed"
+    width="100%"
+    height="300"
+    style="border:0; border-radius:8px;"
+    allowfullscreen=""
+    loading="lazy">
+  </iframe>
+</section>
+
+<!-- COMPTE -->
+<section id="compte" class="content">
+  <h2>Créer un compte / Connexion</h2>
+
+  <div class="form-box" id="signup-box">
+    <h3>Créer un compte</h3>
+    <input type="text" id="signup-name" placeholder="Nom complet">
+    <input type="email" id="signup-email" placeholder="Email">
+    <input type="password" id="signup-password" placeholder="Mot de passe">
+    <button onclick="signup()">S’inscrire</button>
+    <p>Déjà un compte ? <span onclick="showLogin()">Se connecter</span></p>
+  </div>
+
+  <div class="form-box" id="login-box" style="display:none;">
+    <h3>Connexion</h3>
+    <input type="email" id="login-email" placeholder="Email">
+    <input type="password" id="login-password" placeholder="Mot de passe">
+    <button onclick="login()">Se connecter</button>
+    <p>Pas encore de compte ? <span onclick="showSignup()">S’inscrire</span></p>
+  </div>
+
+  <div class="welcome-box" id="welcome-box" style="display:none;">
+    <h3>Bienvenue, <span id="user-name"></span> !</h3>
+    <button onclick="logout()">Se déconnecter</button>
+  </div>
+</section>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/213776707615?text=Bonjour%20je%20souhaite%20des%20informations%20sur%20vos%20produits" target="_blank" class="whatsapp-button">
+  💬 Contactez-nous sur WhatsApp
+</a>
+
+<!-- BOUTON RETOUR EN HAUT -->
+<button onclick="scrollToTop()" id="topBtn" title="Retour en haut">⬆️</button>
+
+<script src="script.js"></script>
+</body>
+</html>
+dely ibrahimdely ibrahimdely ibrahim<!DOCTYPE htmldely ibrahimdely ibrahimdely ibrahim<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mon Magasin – Bureau Tabac & Cosmétique</title>
+  <meta name="description" content="Bureau tabac et cosmétique à votre service. Produits de qualité, tabac, parfums, cosmétiques et accessoires disponibles en magasin.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container-header">
+    <h1>Mon Magasin</h1>
+    <nav>
+      <a href="#accueil">Accueil</a>
+      <a href="#produits">Produits</a>
+      <a href="#avis">Avis Clients</a>
+      <a href="#contact">Contact</a>
+      <a href="#compte">Compte</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ACCUEIL -->
+<section id="accueil" class="hero">
+  <h2>Bienvenue dans notre magasin</h2>
+  <p>Tabac • Parfums • Cosmétiques • Accessoires</p>
+</section>
+
+<!-- PRODUITS -->
+<section id="produits" class="content">
+  <h2>Nos Produits</h2>
+
+  <input type="text" id="searchInput" placeholder="Rechercher un produit..." onkeyup="searchProducts()">
+
+  <h3>Tabac & Accessoires</h3>
+  <ul class="product-list">
+    <li><img src="images/cigarettes.jpg" alt="Cigarettes"><p>Cigarettes</p></li>
+    <li><img src="images/chicha.jpg" alt="Chicha"><p>Chicha</p></li>
+    <li><img src="images/briquet.jpg" alt="Briquet"><p>Briquets</p></li>
+    <li><img src="images/feuille.jpg" alt="Feuilles"><p>Feuilles</p></li>
+  </ul>
+
+  <h3>Cosmétiques & Parfums</h3>
+  <ul class="product-list">
+    <li><img src="images/parfum.jpg" alt="Parfum"><p>Parfums Homme & Femme</p></li>
+    <li><img src="images/creme.jpg" alt="Crème"><p>Crèmes</p></li>
+    <li><img src="images/soins-cheveux.jpg" alt="Produits capillaires"><p>Produits capillaires</p></li>
+    <li><img src="images/soins-visage.jpg" alt="Soins visage"><p>Soins visage</p></li>
+  </ul>
+  <p class="note">⚠️ Vente uniquement en magasin.</p>
+</section>
+
+<!-- AVIS CLIENTS -->
+<section id="avis" class="content">
+  <h2>⭐ Avis de nos clients</h2>
+
+  <div id="reviews">
+    <div class="review">
+      <strong>Ahmed</strong>
+      <p>Très bon magasin, produits de qualité 👍</p>
+      <div class="stars" data-rating="5">★★★★★</div>
+    </div>
+    <div class="review">
+      <strong>Sara</strong>
+      <p>Accueil chaleureux et bons prix 😊</p>
+      <div class="stars" data-rating="4">★★★★☆</div>
+    </div>
+  </div>
+
+  <h3>Laisser un avis</h3>
+  <input type="text" id="name" placeholder="Votre nom">
+  <textarea id="message" placeholder="Votre avis"></textarea>
+  <div class="star-input">
+    Note :
+    <span onclick="setRating(1)">★</span>
+    <span onclick="setRating(2)">★</span>
+    <span onclick="setRating(3)">★</span>
+    <span onclick="setRating(4)">★</span>
+    <span onclick="setRating(5)">★</span>
+  </div>
+  <button onclick="addReview()">Envoyer</button>
+
+  <p>Moyenne des avis : <span id="average-rating">0</span> / 5 ⭐</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="content">
+  <h2>Contact</h2>
+  <p><strong>Adresse :</strong> Rue ain allah, dely ibrahim</p>
+  <p><strong>Téléphone :</strong> 0776707615</p>
+  <p><strong>Horaires :</strong> Tous les jours 8h – 22h</p>
+
+  <h3>Nous trouver</h3>
+  <iframe
+    src="https://www.google.com/maps?q=ALGER&output=embed"
+    width="100%"
+    height="300"
+    style="border:0; border-radius:8px;"
+    allowfullscreen=""
+    loading="lazy">
+  </iframe>
+</section>
+
+<!-- COMPTE -->
+<section id="compte" class="content">
+  <h2>Créer un compte / Connexion</h2>
+
+  <div class="form-box" id="signup-box">
+    <h3>Créer un compte</h3>
+    <input type="text" id="signup-name" placeholder="Nom complet">
+    <input type="email" id="signup-email" placeholder="Email">
+    <input type="password" id="signup-password" placeholder="Mot de passe">
+    <button onclick="signup()">S’inscrire</button>
+    <p>Déjà un compte ? <span onclick="showLogin()">Se connecter</span></p>
+  </div>
+
+  <div class="form-box" id="login-box" style="display:none;">
+    <h3>Connexion</h3>
+    <input type="email" id="login-email" placeholder="Email">
+    <input type="password" id="login-password" placeholder="Mot de passe">
+    <button onclick="login()">Se connecter</button>
+    <p>Pas encore de compte ? <span onclick="showSignup()">S’inscrire</span></p>
+  </div>
+
+  <div class="welcome-box" id="welcome-box" style="display:none;">
+    <h3>Bienvenue, <span id="user-name"></span> !</h3>
+    <button onclick="logout()">Se déconnecter</button>
+  </div>
+</section>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/213776707615?text=Bonjour%20je%20souhaite%20des%20informations%20sur%20vos%20produits" target="_blank" class="whatsapp-button">
+  💬 Contactez-nous sur WhatsApp
+</a>
+
+<!-- BOUTON RETOUR EN HAUT -->
+<button onclick="scrollToTop()" id="topBtn" title="Retour en haut">⬆️</button>
+
+<script src="script.js"></script>
+</body>
+</html>
